@@ -1,11 +1,26 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { projects } from "./project-data";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Nextfolio Projects",
+  description: "My personal projects",
 };
+
+interface Project {
+  title: string;
+  year: number;
+  description: string;
+  url: string;
+}
+
+const projects: Project[] = [
+  {
+    title: "Chatterup",
+    year: 2023,
+    description: "AI-powered chatbot for querying documents",
+    url: "https://github.com/achrysaetos/nextjs-production",
+  },
+];
 
 export default function Projects() {
   return (
