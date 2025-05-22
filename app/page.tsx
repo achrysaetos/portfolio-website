@@ -25,7 +25,7 @@ export default function Page() {
     await controls.start({
       y: "0%",
       opacity: 1,
-      transition: { type: "spring", stiffness: 120, damping: 14, duration: 0.6 },
+      transition: { type: "spring", stiffness: 500, damping: 30, duration: 0.4 },
     });
   };
 
@@ -50,7 +50,7 @@ export default function Page() {
             <Image
               src="/profile.png"
               alt="Profile photo"
-              className="rounded-full bg-gray-100 block grayscale hover:grayscale-0 w-full h-full"
+              className="rounded-full bg-gray-100 block opacity-75 hover:opacity-100 w-full h-full transition-opacity duration-300"
               unoptimized
               width={160}
               height={160}
