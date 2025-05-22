@@ -16,48 +16,36 @@ export default function Page() {
         />
       </a>
       <h1 className="mb-8 text-2xl font-medium">
-        Portfolio template!
+        Hey, I'm Leck.
       </h1>
       <div className="prose prose-neutral dark:prose-invert">
         <p>
-          A clean, fast, and lightweight portfolio template built with Next.js,
-          Vercel, and Tailwind CSS.
+          I'm a software engineer in San Francisco, currently working on startups.
         </p>
         <p>
-          Nextfolio has everything you need for a portfolio: MDX blog, SEO, RSS,
-          Atom & JSON feeds, analytics, Tweet & YouTube embeds, KaTeX and {""}
+          Previously, I was at a few
+          {" "}
           <a
-            target="_blank"
-            href="https://github.com/1msirius/Nextfolio?tab=readme-ov-file#features"
-          >
-            more
-          </a>
-          .
-        </p>
-        <p>
-          Nextfolio is{" "}
-          <a href={socialLinks.github} target="_blank">
-            open-source
-          </a>{" "}
-          and fully customizable, making it easy to add more features.
-        </p>
-        <p>
-          <a
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2F1msirius%2FNextfolio"
+            href="https://www.linkedin.com/in/leck-tang-b15b89171"
             target="_blank"
           >
-            Deploy
-          </a>{" "}
-          your Nextfolio site with Vercel in minutes and follow the set up
-          instructions in the{" "}
-          <a href="/blog/getting-started">Getting Started</a> post.
+            other companies
+          </a>
+          {" "}
+          where I helped implement AI intake for home services and built visualization tools for infrastructure planning.
         </p>
         <p>
-          Built and maintained by{" "}
-          <a href="https://imsirius.xyz/" target="_blank">
-            Sirius
+          Before that, I graduated from Yale with a double major in CS and Econ, and in high school, I published programming manuals for Java in the Apple iBooks store.
+        </p>
+        <p>
+          I'm excited about fintech, b2b saas, startups, AI, and VR.
+        </p>
+        <p>
+          Would you like to{" "}
+          <a href="/" target="_blank">
+            chat with me
           </a>
-          .
+          ?
         </p>
       </div>
     </section>
