@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { socialLinks } from "./config";
 import { motion, useAnimation } from "framer-motion";
+import Quotes from "./components/Quotes";
 
 export default function Page() {
   const controls = useAnimation();
@@ -91,6 +92,7 @@ export default function Page() {
           ?
         </p>
       </div>
+      <Quotes />
     </section>
   );
 }
