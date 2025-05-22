@@ -1,32 +1,33 @@
 import Link from "next/link";
+import { Metadata } from "next";
 import { formatDate, getBlogPosts } from "app/lib/posts";
+import AnimatedPageLayout from "app/components/AnimatedPageLayout";
+import AnimatedListItem from "app/components/AnimatedListItem";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Blog",
-  description: "Blog posts",
+  description: "My blog posts",
 };
 
 export default function BlogPosts() {
   let allBlogs = getBlogPosts();
 
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-medium">Blog</h1>
-      <div>
-        {allBlogs
-          .sort((a, b) => {
-            if (
-              new Date(a.metadata.publishedAt) >
-              new Date(b.metadata.publishedAt)
-            ) {
-              return -1;
-            }
-            return 1;
-          })
-          .map((post) => (
+    <AnimatedPageLayout title="Blog">
+      {allBlogs
+        .sort((a, b) => {
+          if (
+            new Date(a.metadata.publishedAt) >
+            new Date(b.metadata.publishedAt)
+          ) {
+            return -1;
+          }
+          return 1;
+        })
+        .map((post) => (
+          <AnimatedListItem key={post.slug}>
             <Link
-              key={post.slug}
-              className="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80"
+              className="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80 block"
               href={`/blog/${post.slug}`}
             >
               <div className="w-full flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-1 sm:space-y-0 sm:space-x-2">
@@ -38,8 +39,8 @@ export default function BlogPosts() {
                 </p>
               </div>
             </Link>
-          ))}
-      </div>
-    </section>
+          </AnimatedListItem>
+        ))}
+    </AnimatedPageLayout>
   );
 }

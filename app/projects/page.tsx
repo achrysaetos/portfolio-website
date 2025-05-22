@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import AnimatedPageLayout from "app/components/AnimatedPageLayout";
+import AnimatedListItem from "app/components/AnimatedListItem";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -66,14 +68,17 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section>
-      <h1 className="mb-8 text-2xl font-medium">Projects</h1>
-      <div>
-        {projects.map((project, index) => (
+    <AnimatedPageLayout 
+      title="Projects"
+      showFooterLink={true}
+      footerLinkText="see more →"
+      footerLinkHref="https://github.com/achrysaetos?tab=repositories"
+    >
+      {projects.map((project, index) => (
+        <AnimatedListItem key={index}>
           <Link
-            key={index}
             href={project.url}
-            className="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80"
+            className="flex flex-col space-y-1 mb-5 transition-opacity duration-200 hover:opacity-80 block"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -84,13 +89,8 @@ export default function Projects() {
               </p>
             </div>
           </Link>
-        ))}
-      </div>
-      <div className="float-right text-sm text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200">
-        <a href="https://github.com/achrysaetos?tab=repositories" target="_blank" rel="noopener noreferrer">
-          see more →
-        </a>
-      </div>
-    </section>
+        </AnimatedListItem>
+      ))}
+    </AnimatedPageLayout>
   );
 }
