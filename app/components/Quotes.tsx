@@ -31,7 +31,7 @@ const quotes = [
   "Most people overestimate what they can do in a year and underestimate what they can do in 10 years. - Bill Gates",
   "The fastest way to succeed is to double your failure rate. - Thomas Watson",
   "Most people are other people. Their thoughts are someone else's opinions. - Oscar Wilde",
-  "If you can't explain it simply, you don't understand it well enough. Or you're trying to sound smart. - Einstein/Naval",
+  "If you can't explain it simply, you don't understand it well enough. Or you're trying to sound smart. - Einstein",
   "Most people will choose unhappiness over uncertainty. - Tim Ferriss",
   "The education system is designed to create employees, not entrepreneurs. - Robert Kiyosaki",
   "The person who says it cannot be done should not interrupt the person doing it. - Chinese Proverb",
@@ -42,6 +42,7 @@ export default function Quotes() {
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const typingSpeed = 50;
   const deletingSpeed = 15;
   const delayBetweenQuotes = 4000;
@@ -57,6 +58,9 @@ export default function Quotes() {
   };
 
   useEffect(() => {
+    // Don't run the animation if the user is hovering
+    if (isHovered) return;
+
     const handleTyping = () => {
       const fullText = quotes[quoteIndex];
 
@@ -81,10 +85,14 @@ export default function Quotes() {
     );
 
     return () => clearTimeout(ticker);
-  }, [currentText, isDeleting, loopNum, quoteIndex, typingSpeed, deletingSpeed, delayBetweenQuotes]);
+  }, [currentText, isDeleting, loopNum, quoteIndex, isHovered, typingSpeed, deletingSpeed, delayBetweenQuotes]);
 
   return (
-    <div className="mt-8 text-md font-light text-center h-20 italic">
+    <div 
+      className="mt-8 text-md font-light text-center h-20 italic"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <AnimatePresence mode="wait">
         <motion.span
           key={quoteIndex}
