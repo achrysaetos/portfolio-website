@@ -103,12 +103,12 @@ export default function Page() {
           Before that, I graduated from Yale with a double major in CS and Econ, and in high school, I published programming manuals for Java in the Apple iBooks store.
         </p>
         <p>
-          I'm excited about fintech, b2b saas, startups, AI, and VR.
+          I'm excited about fintech, b2b saas, startups, AI, VR, and health tech.
         </p>
         <p>
-          Would you like to{" "}
+          Would you like to chat with my{" "}
           <a href="/" target="_blank">
-            chat with me
+            digital avatar
           </a>
           ?
         </p>
