@@ -2,10 +2,13 @@
 import Image from "next/image";
 import { socialLinks } from "./config";
 import { motion, useAnimation } from "framer-motion";
+import { useState } from "react";
 import Quotes from "./components/Quotes";
+import ChatBox from "./components/ChatBox";
 
 export default function Page() {
   const controls = useAnimation();
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
   const handleClick = async (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -27,6 +30,15 @@ export default function Page() {
       opacity: 1,
       transition: { type: "spring", stiffness: 500, damping: 30, duration: 0.4 },
     });
+  };
+
+  const handleChatOpen = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsChatOpen(true);
+  };
+
+  const handleChatClose = () => {
+    setIsChatOpen(false);
   };
 
   return (
@@ -106,14 +118,18 @@ export default function Page() {
           I'm excited about fintech, b2b saas, startups, AI, VR, and health tech.
         </p>
         <p>
-          Would you like to chat with my{" "}
-          <a href="/" target="_blank">
-            digital avatar
+          Would you like to chat with my digital{" "}
+          <a href="#" onClick={handleChatOpen} className="cursor-pointer">
+            rabbit avatar
           </a>
           ?
         </p>
       </div>
-      <Quotes />
+      {isChatOpen ? (
+        <ChatBox onClose={handleChatClose} />
+      ) : (
+        <Quotes />
+      )}
     </section>
   );
 }
