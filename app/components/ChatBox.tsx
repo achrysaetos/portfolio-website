@@ -18,7 +18,7 @@ export default function ChatBox({ onClose }: ChatBoxProps) {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 1,
-      text: "Hi, how can I help you today?",
+      text: "Wow, someone new! Hop into a chat?",
       sender: "ai",
       timestamp: new Date(),
     },
@@ -136,10 +136,10 @@ export default function ChatBox({ onClose }: ChatBoxProps) {
             </div>
             <div>
               <h3 className="font-medium text-gray-900 dark:text-white">
-                Leck Tang
+                Cordipulus
               </h3>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                m@example.com
+                fastest rabbit on earth
               </p>
             </div>
           </div>
