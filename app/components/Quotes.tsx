@@ -43,9 +43,11 @@ export default function Quotes() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   const typingSpeed = 50;
   const deletingSpeed = 15;
   const delayBetweenQuotes = 4000;
+  const initialDelay = 2000; // 2 seconds
 
   // Function to get a random quote index that's different from the current one
   const getRandomQuoteIndex = (currentIndex: number) => {
@@ -57,9 +59,18 @@ export default function Quotes() {
     return newIndex;
   };
 
+  // Initial delay before starting the typing animation
   useEffect(() => {
-    // Don't run the animation if the user is hovering
-    if (isHovered) return;
+    const timer = setTimeout(() => {
+      setHasStarted(true);
+    }, initialDelay);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    // Don't run the animation if the user is hovering or if initial delay hasn't completed
+    if (isHovered || !hasStarted) return;
 
     const handleTyping = () => {
       const fullText = quotes[quoteIndex];
@@ -85,7 +96,7 @@ export default function Quotes() {
     );
 
     return () => clearTimeout(ticker);
-  }, [currentText, isDeleting, loopNum, quoteIndex, isHovered, typingSpeed, deletingSpeed, delayBetweenQuotes]);
+  }, [currentText, isDeleting, loopNum, quoteIndex, isHovered, typingSpeed, deletingSpeed, delayBetweenQuotes, hasStarted]);
 
   return (
     <div 
