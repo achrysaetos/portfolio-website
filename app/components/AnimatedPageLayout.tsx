@@ -15,8 +15,8 @@ const containerVariants = {
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.1,
+      delayChildren: 0.16,
+      staggerChildren: 0.08,
     },
   },
 };
@@ -32,7 +32,7 @@ const itemVariants = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 0.6,
+      duration: 0.48,
       ease: [0.25, 0.25, 0, 1],
     },
   },
@@ -49,7 +49,7 @@ const titleVariants = {
     y: 0,
     filter: "blur(0px)",
     transition: {
-      duration: 0.8,
+      duration: 0.64,
       ease: [0.25, 0.25, 0, 1],
     },
   },
@@ -85,14 +85,14 @@ export default function AnimatedPageLayout({
             opacity: 1, 
             y: 0,
             transition: { 
-              delay: 0.8,
-              duration: 0.6,
+              delay: 0.64,
+              duration: 0.48,
               ease: [0.25, 0.25, 0, 1]
             }
           }}
           whileHover={{ 
             x: 5,
-            transition: { duration: 0.2, ease: "easeOut" }
+            transition: { duration: 0.16, ease: "easeOut" }
           }}
         >
           <a href={footerLinkHref} target="_blank" rel="noopener noreferrer">

@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ThemeSwitch } from "./theme-switch";
 import { metaData } from "../config";
 
@@ -25,7 +27,27 @@ export function Navbar() {
               href={path}
               className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative"
             >
-              {name}
+              <motion.span
+                whileHover={{
+                  y: -1,
+                  transition: { duration: 0.2, ease: "easeOut" }
+                }}
+                whileTap={{
+                  y: 0,
+                  transition: { duration: 0.1 }
+                }}
+                className="relative"
+              >
+                {name}
+                <motion.div
+                  className="absolute -bottom-1 left-0 h-0.5 bg-current"
+                  initial={{ width: 0 }}
+                  whileHover={{
+                    width: "100%",
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
+                />
+              </motion.span>
             </Link>
           ))}
           <ThemeSwitch />

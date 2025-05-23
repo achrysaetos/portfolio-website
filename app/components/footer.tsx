@@ -1,6 +1,6 @@
 "use client";
-
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FaXTwitter,
   FaGithub,
@@ -15,9 +15,22 @@ const YEAR = new Date().getFullYear();
 
 function SocialLink({ href, icon: Icon }) {
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{
+        y: -1,
+        transition: { duration: 0.2, ease: "easeOut" }
+      }}
+      whileTap={{
+        y: 0,
+        transition: { duration: 0.1 }
+      }}
+      className="hover:opacity-80 transition-opacity duration-200"
+    >
       <Icon />
-    </a>
+    </motion.a>
   );
 }
 
@@ -29,9 +42,7 @@ function SocialLinks() {
       <SocialLink href={socialLinks.instagram} icon={FaInstagram} />
       <SocialLink href={socialLinks.linkedin} icon={FaLinkedinIn} />
       <SocialLink href={socialLinks.email} icon={TbMailFilled} />
-      <a href="/rss.xml" target="_self">
-        <FaRss />
-      </a>
+      <SocialLink href="/rss.xml" icon={FaRss} />
     </div>
   );
 }

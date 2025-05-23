@@ -22,7 +22,7 @@ export default function AnimatedListItem({
       whileHover={{ 
         scale: 1.01,
         transition: { 
-          duration: 0.3, 
+          duration: 0.24, 
           ease: [0.25, 0.46, 0.45, 0.94] 
         }
       }}
