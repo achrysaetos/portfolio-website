@@ -12,5 +12,6 @@ export const socialLinks = {
   github: "https://github.com/achrysaetos",
   instagram: "https://www.instagram.com/",
   linkedin: "https://www.linkedin.com/in/leck-tang-b15b89171",
-  email: "mailto:example@gmail.com",
+  email: "mailto:achrysaetos2022@gmail.com",
+  goodreads: "https://www.goodreads.com/user/show/170452623-stan-ford",
 };
