@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { metaData } from "../config";
 
 export function AnimatedLogo() {
+  const logo = "lecktang"
+
   const letterVariants = {
     initial: { 
       y: 0,
@@ -55,7 +57,7 @@ export function AnimatedLogo() {
         className="relative"
       >
         <div className="text-3xl font-extralight tracking-[0.1em] text-neutral-900 dark:text-neutral-100 font-serif relative">
-          {metaData.title.split('').map((letter, index) => (
+          {logo.split('').map((letter, index) => (
             <motion.span
               key={index}
               variants={letterVariants}
