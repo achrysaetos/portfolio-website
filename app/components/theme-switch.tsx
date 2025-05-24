@@ -87,7 +87,7 @@ export const ThemeSwitch: React.FC = () => {
     >
       <motion.div
         animate={{ rotate: rotation }}
-        whileHover={{ scale: 1.08 }}
+        whileHover={{ scale: 1.1 }}
         transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         <FaCircleHalfStroke

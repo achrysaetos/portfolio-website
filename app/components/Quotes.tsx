@@ -99,10 +99,12 @@ export default function Quotes() {
   }, [currentText, isDeleting, loopNum, quoteIndex, isHovered, typingSpeed, deletingSpeed, delayBetweenQuotes, hasStarted]);
 
   return (
-    <div 
-      className="mt-8 text-md font-light text-center h-20 italic"
+    <motion.div 
+      className="mt-8 text-md font-light text-center italic"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      animate={{ scale: isHovered ? 1.03 : 1 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
     >
       <AnimatePresence mode="wait">
         <motion.span
@@ -116,6 +118,6 @@ export default function Quotes() {
         </motion.span>
       </AnimatePresence>
       <span className="animate-ping">|</span>
-    </div>
+    </motion.div>
   );
 } 

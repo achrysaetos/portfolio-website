@@ -22,7 +22,7 @@ function SocialLink({ href, icon: Icon }) {
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{
-        y: -1,
+        y: -1.5,
         transition: { duration: 0.2, ease: "easeOut" }
       }}
       whileTap={{
