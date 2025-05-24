@@ -91,7 +91,7 @@ export default function AnimatedPageLayout({
             }
           }}
           whileHover={{ 
-            x: 5,
+            x: 3,
             transition: { duration: 0.16, ease: "easeOut" }
           }}
         >

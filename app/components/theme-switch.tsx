@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { ThemeProviderProps } from "next-themes";
 import { FaCircleHalfStroke } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 const storageKey = 'theme-preference';
 
@@ -24,6 +25,7 @@ export const ThemeSwitch: React.FC = () => {
   const { setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const [currentTheme, setCurrentTheme] = React.useState<'light' | 'dark'>('light');
+  const [rotation, setRotation] = React.useState(0);
 
   const getColorPreference = (): 'light' | 'dark' => {
     if (typeof window !== 'undefined') {
@@ -64,6 +66,7 @@ export const ThemeSwitch: React.FC = () => {
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     localStorage.setItem(storageKey, newTheme);
     reflectPreference(newTheme);
+    setRotation(rotation + 180);
   };
 
   if (!mounted) {
@@ -82,11 +85,17 @@ export const ThemeSwitch: React.FC = () => {
       onClick={toggleTheme}
       className="flex items-center justify-center transition-opacity duration-300 hover:opacity-90"
     >
-      <FaCircleHalfStroke
-        className={`h-[14px] w-[14px] ${
-          currentTheme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
-        }`}
-      />
+      <motion.div
+        animate={{ rotate: rotation }}
+        whileHover={{ scale: 1.08 }}
+        transition={{ duration: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+      >
+        <FaCircleHalfStroke
+          className={`h-[14px] w-[14px] ${
+            currentTheme === "dark" ? "text-[#D4D4D4]" : "text-[#1c1c1c]"
+          }`}
+        />
+      </motion.div>
     </button>
   );
 };
