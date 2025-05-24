@@ -1,10 +1,10 @@
 export const metaData = {
   baseUrl: "https://lecktang.com/",
-  title: "lecktang",
+  title: "Leck Tang",
   name: "Leck Tang",
   ogImage: "/opengraph-image.png",
   description:
-    "A clean, fast, and lightweight portfolio template built with Next.js, Vercel, and Tailwind CSS for optimal performance.",
+    "Hello there! You've reached my personal site and blog. Check out my Github, connect with me on LinkedIn, or follow me on Twitter!",
 };
 
 export const socialLinks = {
